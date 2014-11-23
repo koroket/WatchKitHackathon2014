@@ -54,9 +54,21 @@
                                     NSArray*fetchedData = [NSJSONSerialization JSONObjectWithData:data
                                                                                           options:0
                                                                                             error:nil];
-                                    NSLog(@"got more cards");
+                                    if(fetchedData.count>0)
+                                    {
+                                        NSMutableDictionary *temp = fetchedData[0];
+                                        NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.masaBando.shared"];
+                                        
+                                        [sharedDefaults setObject:temp[@"name"] forKey:@"locations"];
+                                        [sharedDefaults synchronize];
+                                        
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+
                                     
-                                    NSLog(@"%@",fetchedData);
                                 }); // Main Queue dispatch block
                  
                  // do something with this data
@@ -116,7 +128,7 @@
     NSLog(@"Failed to get location!:(");
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.masaBando.shared"];
     
-    [sharedDefaults setObject:@"GPS not available" forKey:@"locations"];
+    [sharedDefaults setObject:@"Searching..." forKey:@"locations"];
     [sharedDefaults synchronize];
 }
 
@@ -124,10 +136,6 @@
     
     NSLog(@"updated");
     CLLocation *newLocation = [locations lastObject];
-    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.masaBando.shared"];
-    
-    [sharedDefaults setObject:@"location Updated" forKey:@"locations"];
-    [sharedDefaults synchronize];
     
     self.currentLatitude = [NSString stringWithFormat:(@"%f"), newLocation.coordinate.latitude];
     
