@@ -1,6 +1,6 @@
 {
     "aps": {
-        "alert": "Test message content",
+        "alert": "Tiest message content",
         "title": "Optional title",
         "category": "myCategory"
     },

@@ -10,6 +10,9 @@
 
 
 @interface InterfaceController()
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *text;
+- (IBAction)open;
+
 
 @end
 
@@ -26,10 +29,29 @@
     }
     return self;
 }
-
+-(void)autoUpdateStart
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^
+                   {
+                       NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.masaBando.shared"];
+                       NSString* prevLoc = @"";
+                       while(true)
+                       {
+                           if([sharedDefaults objectForKey:@"locations"]!=prevLoc)
+                           {
+                               prevLoc = [sharedDefaults objectForKey:@"locations"];
+                               dispatch_async(dispatch_get_main_queue(), ^
+                                              {
+                                                  [self.text setText:[sharedDefaults objectForKey:@"locations"]];
+                                              });
+                           }
+                       }
+                   });
+}
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     NSLog(@"%@ will activate", self);
+    [self autoUpdateStart];
 }
 
 - (void)didDeactivate {
@@ -37,6 +59,9 @@
     NSLog(@"%@ did deactivate", self);
 }
 
+- (IBAction)open {
+     [self.text setText:@"nice"];
+}
 @end
 
 

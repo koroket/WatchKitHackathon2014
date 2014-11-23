@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *myImage;
+#import <CoreLocation/CoreLocation.h>
+@interface ViewController : UIViewController<CLLocationManagerDelegate>
 
 
 @end

@@ -24,6 +24,30 @@
         NSLog(@"%@ init", self);
         
     }
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"PushNotificationPayload" ofType:@"json"];
+//    
+//    NSError * error;
+//    NSString* fileContents =[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+//    
+//    
+//
+////    NSDictionary* mydict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+////                                                           options:0
+////                                                             error:nil];
+//    NSString* filePath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],@"data.json"];
+//    
+//    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+//    [dictionary setValue:@"sup" forKey:@"friends"];
+//    [dictionary setValue:@"gucci" forKey:@"myName"];
+//    
+//    //Error Handling
+//    NSError *error = nil;
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary options:kNilOptions error:&error];
+//    [data writeToFile:filePath atomically:YES];
+//    NSLog(@"k");
+    
+
+    
     return self;
 }
 
@@ -58,7 +82,10 @@
     completionHandler(WKUserNotificationInterfaceTypeCustom);
 }
 */
-
+-(void) firstAction:(id)sender
+{
+    NSLog(@"sup");
+}
 @end
 
 

@@ -18,6 +18,7 @@
 		627008631A2260AC00043D74 /* WatchKitHackathon2014 WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 627008411A2260AC00043D74 /* WatchKitHackathon2014 WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6270086C1A22627300043D74 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6270086B1A22627300043D74 /* QuartzCore.framework */; };
 		6270086F1A22678200043D74 /* AppCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 6270086E1A22678200043D74 /* AppCommunication.m */; };
+		62830C561A22A574008B2E0D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62830C551A22A574008B2E0D /* CoreLocation.framework */; };
 		62910BD61A225F6E0010E5BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62910BD51A225F6E0010E5BE /* main.m */; };
 		62910BD91A225F6E0010E5BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62910BD81A225F6E0010E5BE /* AppDelegate.m */; };
 		62910BDC1A225F6E0010E5BE /* WatchKitHackathon2014.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62910BDA1A225F6E0010E5BE /* WatchKitHackathon2014.xcdatamodeld */; };
@@ -85,6 +86,9 @@
 		6270086B1A22627300043D74 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6270086D1A22678200043D74 /* AppCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommunication.h; sourceTree = "<group>"; };
 		6270086E1A22678200043D74 /* AppCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCommunication.m; sourceTree = "<group>"; };
+		62830C531A229D48008B2E0D /* WatchKitHackathon2014.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchKitHackathon2014.entitlements; sourceTree = "<group>"; };
+		62830C541A229E7D008B2E0D /* WatchKitHackathon2014 WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "WatchKitHackathon2014 WatchKit Extension.entitlements"; path = "WatchKitHackathon2014 WatchKit Extension/WatchKitHackathon2014 WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		62830C551A22A574008B2E0D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		62910BD01A225F6E0010E5BE /* WatchKitHackathon2014.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchKitHackathon2014.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62910BD41A225F6E0010E5BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62910BD51A225F6E0010E5BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62830C561A22A574008B2E0D /* CoreLocation.framework in Frameworks */,
 				6270086C1A22627300043D74 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,13 +136,14 @@
 		627008421A2260AC00043D74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62830C551A22A574008B2E0D /* CoreLocation.framework */,
 				6270086B1A22627300043D74 /* QuartzCore.framework */,
 				627008431A2260AC00043D74 /* WatchKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		627008451A2260AC00043D74 /* WatchKitHackathon2014 WatchKit Extension */ = {
+		627008451A2260AC00043D74 /* watch */ = {
 			isa = PBXGroup;
 			children = (
 				627008491A2260AC00043D74 /* InterfaceController.h */,
@@ -147,18 +153,19 @@
 				6270084F1A2260AC00043D74 /* GlanceController.h */,
 				627008501A2260AC00043D74 /* GlanceController.m */,
 				627008521A2260AC00043D74 /* Images.xcassets */,
-				627008461A2260AC00043D74 /* Supporting Files */,
+				627008461A2260AC00043D74 /* files */,
 			);
+			name = watch;
 			path = "WatchKitHackathon2014 WatchKit Extension";
 			sourceTree = "<group>";
 		};
-		627008461A2260AC00043D74 /* Supporting Files */ = {
+		627008461A2260AC00043D74 /* files */ = {
 			isa = PBXGroup;
 			children = (
 				627008471A2260AC00043D74 /* Info.plist */,
 				627008481A2260AC00043D74 /* PushNotificationPayload.json */,
 			);
-			name = "Supporting Files";
+			name = files;
 			sourceTree = "<group>";
 		};
 		6270085A1A2260AC00043D74 /* WatchKitHackathon2014 Watch App */ = {
@@ -182,9 +189,10 @@
 		62910BC71A225F6E0010E5BE = {
 			isa = PBXGroup;
 			children = (
+				62830C541A229E7D008B2E0D /* WatchKitHackathon2014 WatchKit Extension.entitlements */,
 				62910BD21A225F6E0010E5BE /* WatchKitHackathon2014 */,
 				62910BEF1A225F6F0010E5BE /* WatchKitHackathon2014Tests */,
-				627008451A2260AC00043D74 /* WatchKitHackathon2014 WatchKit Extension */,
+				627008451A2260AC00043D74 /* watch */,
 				6270085A1A2260AC00043D74 /* WatchKitHackathon2014 Watch App */,
 				627008421A2260AC00043D74 /* Frameworks */,
 				62910BD11A225F6E0010E5BE /* Products */,
@@ -205,6 +213,7 @@
 		62910BD21A225F6E0010E5BE /* WatchKitHackathon2014 */ = {
 			isa = PBXGroup;
 			children = (
+				62830C531A229D48008B2E0D /* WatchKitHackathon2014.entitlements */,
 				62910BD71A225F6E0010E5BE /* AppDelegate.h */,
 				62910BD81A225F6E0010E5BE /* AppDelegate.m */,
 				62910BDD1A225F6E0010E5BE /* ViewController.h */,
@@ -330,12 +339,24 @@
 				TargetAttributes = {
 					627008401A2260AC00043D74 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8V8HUCA3M9;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					627008551A2260AC00043D74 = {
 						CreatedOnToolsVersion = 6.2;
 					};
 					62910BCF1A225F6E0010E5BE = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8V8HUCA3M9;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					62910BEB1A225F6F0010E5BE = {
 						CreatedOnToolsVersion = 6.2;
@@ -476,6 +497,9 @@
 		627008641A2260AC00043D74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchKitHackathon2014 WatchKit Extension/WatchKitHackathon2014 WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -483,6 +507,7 @@
 				INFOPLIST_FILE = "WatchKitHackathon2014 WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -490,9 +515,13 @@
 		627008651A2260AC00043D74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchKitHackathon2014 WatchKit Extension/WatchKitHackathon2014 WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchKitHackathon2014 WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -609,9 +638,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchKitHackathon2014/WatchKitHackathon2014.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WatchKitHackathon2014/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -619,9 +652,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchKitHackathon2014/WatchKitHackathon2014.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WatchKitHackathon2014/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -669,6 +706,7 @@
 				627008671A2260AC00043D74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		627008691A2260AC00043D74 /* Build configuration list for PBXNativeTarget "WatchKitHackathon2014 WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -677,6 +715,7 @@
 				627008651A2260AC00043D74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62910BCB1A225F6E0010E5BE /* Build configuration list for PBXProject "WatchKitHackathon2014" */ = {
 			isa = XCConfigurationList;

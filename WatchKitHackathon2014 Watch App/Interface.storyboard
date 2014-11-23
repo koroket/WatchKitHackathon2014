@@ -11,7 +11,16 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <label alignment="center" text="wuzgood" id="Pmb-dR-9Tq"/>
+                        <button width="1" alignment="left" title="Button" id="Bhd-d3-Pt1">
+                            <connections>
+                                <action selector="open" destination="AgC-eL-Hgc" id="Ukj-mw-TLI"/>
+                            </connections>
+                        </button>
                     </items>
+                    <color key="backgroundColor" red="1" green="0.91808484993007111" blue="0.3102781411976292" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="text" destination="Pmb-dR-9Tq" id="c9G-ng-1on"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
