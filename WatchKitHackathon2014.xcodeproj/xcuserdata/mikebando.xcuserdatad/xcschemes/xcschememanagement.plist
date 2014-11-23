@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>WatchKitHackathon2014 Watch App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>WatchKitHackathon2014.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>627008551A2260AC00043D74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>62910BCF1A225F6E0010E5BE</key>
 		<dict>
 			<key>primary</key>

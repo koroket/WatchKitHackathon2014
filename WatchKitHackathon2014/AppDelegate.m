@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
+#import "ViewController.h"
+#import "AppCommunication.h"
+//CGImageRef UIGetScreenImage();
+CGImageRef UIGetScreenImage(void);
+
 
 @interface AppDelegate ()
 
@@ -14,7 +20,16 @@
 
 @implementation AppDelegate
 
-
+//+ (UIImage *)imageWithScreenContents
+//{
+//    CGImageRef cgScreen = UIGetScreenImage();
+//    if (cgScreen) {
+//        UIImage *result = [UIImage imageWithCGImage:cgScreen];
+//        CGImageRelease(cgScreen);
+//        return result;
+//    }
+//    return nil;
+//}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;
@@ -28,6 +43,55 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"backg");
+//    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
+//    if (NULL != UIGraphicsBeginImageContextWithOptions)
+//        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+//    else
+//        UIGraphicsBeginImageContext(imageSize);
+//    
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    // Iterate over every window from back to front
+//    for (UIWindow *window in [[UIApplication sharedApplication] windows])
+//    {
+//        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
+//        {
+//            // -renderInContext: renders in the coordinate space of the layer,
+//            // so we must first apply the layer's geometry to the graphics context
+//            CGContextSaveGState(context);
+//            // Center the context around the window's anchor point
+//            CGContextTranslateCTM(context, [window center].x, [window center].y);
+//            // Apply the window's transform about the anchor point
+//            CGContextConcatCTM(context, [window transform]);
+//            // Offset by the portion of the bounds left of and above the anchor point
+//            CGContextTranslateCTM(context,
+//                                  -[window bounds].size.width * [[window layer] anchorPoint].x,
+//                                  -[window bounds].size.height * [[window layer] anchorPoint].y);
+//            
+//            // Render the layer hierarchy to the current context
+//            [[window layer] renderInContext:context];
+//            
+//            // Restore the context
+//            CGContextRestoreGState(context);
+//        }
+//    }
+//    
+//    // Retrieve the screenshot image
+//    UIImage *imageForEmail = UIGraphicsGetImageFromCurrentImageContext();
+//    if([AppCommunication sharedManager].viewController!=nil)
+//    {
+//        [AppCommunication sharedManager].viewController.myImage.image = imageForEmail;
+//    }
+//    UIWindow *screenWindow = [[UIApplication sharedApplication] keyWindow];
+//    
+//    UIGraphicsBeginImageContext(screenWindow.frame.size);
+//    [screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
+//UIGetScreenImage();
+//    UIImage* background = [UIImage imageWithCGImage:cgBackground];
+//    //UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+//           [AppCommunication sharedManager].viewController.myImage.image = background;
+    //CGImageRef screen = UIGetScreenImage();
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
