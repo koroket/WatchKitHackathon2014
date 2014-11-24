@@ -10,8 +10,11 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <label alignment="center" text="wuzgood" id="Pmb-dR-9Tq"/>
-                        <imageView width="1" height="126" alignment="left" id="e8a-q2-5Y6"/>
+                        <label alignment="center" text="wuzgood" id="Pmb-dR-9Tq">
+                            <color key="textColor" red="0.20675069060000001" green="0.20675069060000001" blue="0.20675069060000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="10"/>
+                        </label>
+                        <imageView width="1" height="135" alignment="left" id="e8a-q2-5Y6"/>
                     </items>
                     <color key="backgroundColor" red="1" green="0.91808484993007111" blue="0.3102781411976292" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
                     <connections>
