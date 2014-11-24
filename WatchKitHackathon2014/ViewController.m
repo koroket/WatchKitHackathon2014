@@ -8,10 +8,20 @@
 
 #import "ViewController.h"
 #import "AppCommunication.h"
-@interface ViewController ()
+@interface ViewController (){
+
+    NSArray *_pickerData;
+    
+    
+    
+}
 @property (nonatomic,strong) CLLocationManager* locationManager;
+- (IBAction)save:(id)sender;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (nonatomic,strong) NSString* currentLatitude;
 @property (nonatomic,strong) NSString* currentLongitude;
+@property (strong, nonatomic) IBOutlet UITextField *searchTerm2;
+@property (nonatomic,strong) NSString* searchTerm;
 @end
 
 @implementation ViewController
@@ -28,7 +38,7 @@
 {
     
 
-        NSString *fixedURL = [NSString stringWithFormat:@"http://young-sierra-7245.herokuapp.com/watch/yelp/%@/%@/food",self.currentLatitude,self.currentLongitude];
+        NSString *fixedURL = [NSString stringWithFormat:@"http://young-sierra-7245.herokuapp.com/watch/yelp/%@/%@/%@",self.currentLatitude,self.currentLongitude,self.searchTerm];
         NSURL *url = [NSURL URLWithString:fixedURL];
         // Request
         NSMutableURLRequest *request =
@@ -58,7 +68,20 @@
                                     {
                                         NSMutableDictionary *temp = fetchedData[0];
                                         NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.masaBando.shared"];
-                                        
+                                        if(temp[@"image_url"]!=nil)
+                                        {
+                                            
+                                            NSString* newString = temp[@"image_url"];
+                                            
+                                            NSString* new2String = [newString stringByReplacingOccurrencesOfString:@"/ms.jpg" withString:@"/o.jpg"];
+                 
+                                            //UIImage *tempImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:new2String]]];
+                                            
+                                            [sharedDefaults setObject:[NSData dataWithContentsOfURL:[NSURL URLWithString:new2String]] forKey:@"pic"];
+                                            
+                                            
+                            
+                                        }
                                         [sharedDefaults setObject:temp[@"name"] forKey:@"locations"];
                                         [sharedDefaults synchronize];
                                         
@@ -89,6 +112,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [AppCommunication sharedManager].viewController = self;
+    _pickerData = @[@"Restaurants", @"Quick Eats", @"Bars", @"NightLife", @"Coffee & Breakfast"];
+    self.searchTerm = @"Restaurants";
+
     [self startStandardUpdates];
 }
 
@@ -140,6 +166,54 @@
     self.currentLatitude = [NSString stringWithFormat:(@"%f"), newLocation.coordinate.latitude];
     
     self.currentLongitude = [NSString stringWithFormat:(@"%f"), newLocation.coordinate.longitude];
+    [self getYelp];
+}
+
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (int)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerData.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView
+            titleForRow:(NSInteger)row
+           forComponent:(NSInteger)component
+{
+    return _pickerData[row];
+}
+
+// Capture the picker view selection
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component
+{
+    
+    self.searchTerm =  _pickerData[row];
+
+    
+    NSLog(@"The current selection is %@",_pickerData[row]);
+}
+
+// Change the attributes of the text in the UIPicker
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:_pickerData[row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    
+    return attString;
+    
+}
+
+- (IBAction)save:(id)sender {
+    self.searchTerm = self.searchTerm2.text;
     [self getYelp];
 }
 @end

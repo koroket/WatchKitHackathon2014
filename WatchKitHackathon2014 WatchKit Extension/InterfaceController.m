@@ -11,6 +11,7 @@
 
 @interface InterfaceController()
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *text;
+@property (strong, nonatomic) IBOutlet WKInterfaceImage *myImage;
 - (IBAction)open;
 
 
@@ -43,6 +44,11 @@
                                dispatch_async(dispatch_get_main_queue(), ^
                                               {
                                                   [self.text setText:[sharedDefaults objectForKey:@"locations"]];
+                                                  if([sharedDefaults objectForKey:@"pic"]!=nil)
+                                                  {
+                                                     
+                                                      [self.myImage setImage: [UIImage imageWithData:[sharedDefaults objectForKey:@"pic"]]];
+                                                  }
                                               });
                            }
                        }
